@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --dark-indigo: #242b45;
+    --light-grey-blue: #f7f9fd;
+    --med-grey-blue: #697689;
+    --light-green: hsla(149 80% 90% / 1);
+    --form-width: 55rem;
+}
+
+h1,
+h2,
+h3,
+label,
+input,
+textarea,
+button,
+body {
+    font-family: "Nunito", sans-serif;
+    color: var(--dark-indigo);
+}
+
+body {
+    display: grid;
+    grid-template-columns: 3fr 12fr 3fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+    /* Decorative full width bg */
+    body::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        padding: 12.5rem 0;
+        /* Fallback bgc */
+        background-color: var(--dark-indigo);
+        background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23334155' fill-opacity='0.62'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+/* Center column */
+.header,
+.main {
+    grid-column: 2 / 3;
+}
+
+.header {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.header__nav__title {
+    margin-bottom: 2rem;
+}
+
+.header__nav__list {
+    display: flex;
+    gap: 1.75rem;
+    list-style: none;
+}
+
+.header__nav__link {
+    color: #fff;
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.nav__link--active {
+    color: var(--light-green);
+}
+
+.main {
+    padding-bottom: 4rem;
+}
+
+.main__form {
+    max-width: var(--form-width);
+    padding: 3rem 3.25rem;
+    background-color: #fff;
+    box-shadow: 0 50px 12px -30px hsla(228 70% 54% / .15);
+}
+
+.form__group:not(:last-of-type) {
+    margin-bottom: 1.25rem;
+}
+
+.form__group__label,
+.form__group__textarea {
+    display: block;
+}
+
+.main__form,
+.form__group__input,
+.form__group__textarea,
+.main__form__submit-btn {
+    border-radius: 10px;
+}
+
+.main__form {
+    margin-bottom: 6rem;
+}
+
+.form__group__label {
+    margin-bottom: .5rem;
+}
+
+.form__group__input,
+.form__group__textarea {
+    padding: .5rem .75rem;
+    font-size: 1rem;
+    border: none;
+    background-color: var(--light-grey-blue);
+}
+
+.form__group__textarea {
+    margin-bottom: 1rem;
+    max-width: var(--form-width);
+    width: 100%;
+    line-height: 1.6;
+}
+
+.main__form__error {
+    margin-bottom: 1rem;
+    color: #b91c1c;
+}
+
+.main__form__submit-btn {
+    padding: .75rem 1rem;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    background: var(--light-green);
+    color: hsla(163 94% 24% / 1);
+}
+
+.main__comments__group:not(:last-of-type) {
+    margin-bottom: 2rem;
+}
+
+.main__comments__group__name {
+    display: inline-block;
+    margin-bottom: .5rem;
+    margin-right: 1.25rem;
+    font-weight: 700;
+    font-size: 1.125rem;
+}
+
+.main__comments__group__date {
+    font-size: .875rem;
+    color: var(--med-grey-blue);
+}
+
+.footer {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.footer__title {
+    font-size: .875rem;
+    color: var(--med-grey-blue);
+}
+
+/* Error page */
+.main--error {
+    padding: 3rem 3.25rem;
+    background-color: #fff;
+}
+
+/* Smaller devices */
+@media screen and (max-width: 62em) {
+    body {
+        grid-template-columns: 1fr 12fr 1fr;
+    }
+}
+
+@media screen and (max-width: 42.5em) {
+    body {
+        grid-template-columns: 1fr 16fr 1fr;
+    }
+
+    .main__form {
+        padding: 2rem 2.25rem;
+    }
+}
+
+@media screen and (max-width: 27.5em) {
+    .header__nav__logo {
+        width: 12rem;
+    }
+
+    .header__nav__list {
+        gap: .875rem;
+    }
+
+    .main__form {
+        padding: 1rem 1.25rem;
+    }
+}

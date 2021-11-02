@@ -1,0 +1,21 @@
+<header class="header">
+    <nav class="header__nav">
+        <h1 class="header__nav__title">
+            <img src="/images/logo-opt.svg" alt="SQL Board logo" class="header__nav__logo" width="242" height="44">
+        </h1>
+        <ul class="header__nav__list">
+            <li class="header__nav__list-item">
+                <a href="/" class="header__nav__link <%= topic === 'general' ? 'nav__link--active' : '' %>">General</a>
+            </li>
+            <li class="header__nav__list-item">
+                <a href="/gaming" class="header__nav__link <%= topic === 'gaming' ? 'nav__link--active' : '' %>">Gaming</a>
+            </li>
+            <li class="header__nav__list-item">
+                <a href="/sports" class="header__nav__link <%= topic === 'sports' ? 'nav__link--active' : '' %>">Sports</a>
+            </li>
+            <li class="header__nav__list-item">
+                <a href="/fashion" class="header__nav__link <%= topic === 'fashion' ? 'nav__link--active' : '' %>">Fashion</a>
+            </li>
+        </ul>
+    </nav>
+</header>

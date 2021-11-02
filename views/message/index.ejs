@@ -1,0 +1,25 @@
+<main class="main main--index">
+    <form action="/new-message?topic=<%= topic %>" method="POST" class="main__form">
+        <div class="form__group">
+            <label for="name" class="form__group__label">Name:</label>
+            <input value="<%= locals.formFieldName ? formFieldName : "" %>" class="form__group__input" type="text" name="name" id="name" required>
+        </div>
+        <div class="form__group">
+            <label for="comment" class="form__group__label">Comment:</label>
+            <textarea class="form__group__textarea" name="comment" id="comment" cols="30" rows="10" required><%= locals.formFieldComment ? formFieldComment : "" %></textarea>
+        </div>
+        <% if (locals.error) { %>
+            <p class="main__form__error"><%= locals.error %></p>
+        <% } %> 
+        <button class="main__form__submit-btn">Post Comment</button>
+    </form>
+    <section class="main__comments">
+        <% for (let comment of comments) { %>
+            <div class="main__comments__group">
+                <span class="main__comments__group__name"><%= comment.username %></span>
+                <span class="main__comments__group__date"><%= comment.created_at %></span>
+                <p class="main__comments__group__text"><%= comment.content %></p>
+            </div>
+        <% } %>
+    </section>
+</main>
